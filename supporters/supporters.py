@@ -59,7 +59,7 @@ class Supporters(Cog):
                         continue
 
         embed = discord.Embed(
-            title="Le Staff",
+            title="Staff actuelement disponible",
             url="",
             colour=self.bot.main_color,
             description=", ".join(member_list),
