@@ -2,7 +2,7 @@
 
 | Nom          | Alias                              | Exemple      | Permission   | Description                                       |
 |--------------|------------------------------------|--------------|--------------|---------------------------------------------------|
-| supporters   | helpers, support, supportmembers   | supporters   | Regular [0]  | Envoyer un embed avec tous les membres du support.|
+| supporters   | helper(s), support, staff(s)       | supporters   | Regular [0]  | Envoyer un embed avec tous les membres du support.|
 
 ## Permissions
 
