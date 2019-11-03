@@ -10,7 +10,7 @@ from core.models import PermissionLevel
 
 class ReactToContact(commands.Cog):
     """
-    Make users start modmail thread by clicking an emoji
+    Faire en sorte que les utilisateurs ouvre un ticket en cliquant sur un emoji
     """
 
     def __init__(self, bot):
@@ -36,9 +36,9 @@ class ReactToContact(commands.Cog):
     @checks.has_permissions(PermissionLevel.ADMIN)
     async def setreaction(self, ctx: commands.Context, link: str):
         """
-        Set the message on which the bot will look reactions on.
-        Creates an __interactive session__ to use emoji **(Supports Unicode Emoji Too)**
-        Before using this command, make sure there is a reaction on the message you want the plugin to look at.
+        Définit le message sur lequel le bot va regarder les réactions.
+        Crée une __session interactive__ via un emoji **(Prend également en charge les Emoji Unicode)**
+        Avant d'utiliser cette commande, assurez-vous qu'il y a une réaction sur le message en question.
 
         **Usage:**
         {prefix}setreaction <message_url>
@@ -56,8 +56,8 @@ class ReactToContact(commands.Cog):
 
             # TODO: Better English
             await ctx.send(
-                "React to this message with the emoji."
-                " `(This Reaction Should be added on this message or it won't work.)`"
+                "Réagir à ce message avec un emoji"
+                " `(Cette réaction doit être ajoutée à ce message ou cela ne fonctionnera pas.)`"
             )
             reaction, user = await self.bot.wait_for("reaction_add", check=check)
 
@@ -75,7 +75,7 @@ class ReactToContact(commands.Cog):
             await ctx.send("Done!")
 
         else:
-            await ctx.send("Please give a valid message link")
+            await ctx.send("S'il vous plaît donner un lien de message valide")
             return
 
     @commands.Cog.listener()
@@ -116,16 +116,16 @@ class ReactToContact(commands.Cog):
         try:
             await member.send(
                 embed=discord.Embed(
-                    description="Hello, how may we help you?", color=self.bot.main_color
+                    description="Bonjour, comment pouvons-nous vous aider ?", color=self.bot.main_color, set_footer="Attention répondre à ce message ouvrira un ticket support.
                 )
             )
         except (discord.HTTPException, discord.Forbidden):
-            ch = self.bot.get_channel(int(self.bot.config.get("log_channel_id")))
+            ch = self.bot.get_channel(int(self.bot.config.get("575743860827750400")))
 
             await ch.send(
                 embed=discord.Embed(
-                    title="User Contact failed",
-                    description=f"**{member.name}#{member.discriminator}** tried contacting, but the bot couldnt dm him/her.",
+                    title="Le contact de l'utilisateur a échoué",
+                    description=f"**{member.name}#{member.discriminator}** n'autorise pas les mp ou ma bloqué.",
                     color=self.bot.main_color,
                     timestamp=datetime.datetime.utcnow(),
                 )
