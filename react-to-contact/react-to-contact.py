@@ -72,8 +72,7 @@ class ReactToContact(commands.Cog):
                 },
                 upsert=True,
             )
-            addreact, user = await msg.add_reaction(reaction.emoji.id)
-            addreact()
+            await self.bot.add_reaction(msg, reaction.emoji)
             await ctx.send("C'est bon !")
 
         else:
