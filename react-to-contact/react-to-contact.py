@@ -57,7 +57,7 @@ class ReactToContact(commands.Cog):
             # TODO: Better English
             await ctx.send(
                 "Réagissez au message avec l'émoji"
-                " `(This Reaction Should be added on this message or it won't work.)`"
+                " `(Cette reaction doit être mise sur ce message sinon ça ne marchera pas.)`"
             )
             reaction, user = await self.bot.wait_for("reaction_add", check=check)
 
@@ -72,7 +72,7 @@ class ReactToContact(commands.Cog):
                 },
                 upsert=True,
             )
-            await ctx.send("Done!")
+            await ctx.send("C'est bon !")
 
         else:
             await ctx.send("Donnez moi un lien valid s'il vous plait.")
