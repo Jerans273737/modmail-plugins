@@ -34,7 +34,7 @@ class Supporters(Cog):
 
         if category_id is None:
             embed = discord.Embed(
-                title="Le Staff",
+                title="Staff actuelement disponible",
                 url="https://github.com/papiersnipper/modmail-plugins/blob/master/supporters",
                 description=f"I couldn't find the modmail category.\nMake sure it's set using the `?config set main_category_id` command.",
                 color=self.bot.main_color,
