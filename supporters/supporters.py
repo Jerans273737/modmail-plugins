@@ -9,8 +9,8 @@ Cog = getattr(commands, "Cog", object)
 
 
 class Supporters(Cog):
-    """Indiquez à vos utilisateurs qui fait partie de l\'équipe de support.
-    Plus d\'info: [cliquez ici](https://github.com/papiersnipper/modmail-plugins/tree/master/supporters)
+    """Let your users know who is part of the support team.
+    More info: [click here](https://github.com/papiersnipper/modmail-plugins/tree/master/supporters)
     """
 
     def __init__(self, bot):
@@ -26,9 +26,9 @@ class Supporters(Cog):
             pass
 
 
-    @commands.command(aliases=["helpers", "helper", "supporters", "support", "staff", "staffs"])
+    @commands.command(aliases=["helpers", "supporters", "supportmembers", "staff", "staffs"])
     async def support(self, ctx):
-        """Envoyer un embed avec tous les membres du support."""
+        """Send an embed with all the support members."""
 
         category_id = self.bot.config["main_category_id"]
 
@@ -59,7 +59,7 @@ class Supporters(Cog):
                         continue
 
         embed = discord.Embed(
-            title="Staff actuelement disponible",
+            title="Le Staff",
             url="",
             colour=self.bot.main_color,
             description=", ".join(member_list),
