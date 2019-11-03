@@ -28,7 +28,7 @@ class Supporters(Cog):
 
     @commands.command(aliases=["helpers", "helper", "supporters", "support", "staff", "staffs"])
     async def support(self, ctx):
-        """Send an embed with all the support members."""
+        """Envoyer un embed avec tous les membres du support."""
 
         category_id = self.bot.config["main_category_id"]
 
