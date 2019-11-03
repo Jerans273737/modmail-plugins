@@ -9,8 +9,8 @@ Cog = getattr(commands, "Cog", object)
 
 
 class Supporters(Cog):
-    """Indiquez à vos utilisateurs qui fait partie de l'équipe de support.
-    Plus d'info: [cliquez ici](https://github.com/papiersnipper/modmail-plugins/tree/master/supporters)
+    """Indiquez à vos utilisateurs qui fait partie de l\'équipe de support.
+    Plus d\'info: [cliquez ici](https://github.com/papiersnipper/modmail-plugins/tree/master/supporters)
     """
 
     def __init__(self, bot):
