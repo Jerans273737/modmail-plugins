@@ -72,6 +72,7 @@ class ReactToContact(commands.Cog):
                 },
                 upsert=True,
             )
+            await msg.add_reaction(reaction)
             await ctx.send("C'est bon !")
 
         else:
