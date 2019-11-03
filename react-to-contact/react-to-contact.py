@@ -113,7 +113,7 @@ class ReactToContact(commands.Cog):
 
         await msg.remove_reaction(payload.emoji, member)
         embed = discord.Embed(
-            description="Bonjour, comment puis-je vous aider ?",
+            description="Bonjour, comment puis-je vous aider?",
             color=self.bot.main_color
         )
         embed.set_footer(text="Attention répondre à ce message ouvrira un ticket.")
