@@ -116,8 +116,10 @@ class ReactToContact(commands.Cog):
         try:
             await member.send(
                 embed=discord.Embed(
-                    description="Bonjour, comment pouvons-nous vous aider ?", color=self.bot.main_color, set_footer="Attention répondre à ce message ouvrira un ticket support."
+                    description="Bonjour, comment pouvons-nous vous aider ?", 
+                    color=self.bot.main_color.
                 )
+                embed.set_footer("Attention répondre à ce message ouvrira un ticket support.")
             )
         except (discord.HTTPException, discord.Forbidden):
             ch = self.bot.get_channel(int(self.bot.config.get("575743860827750400")))
