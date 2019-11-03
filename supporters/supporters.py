@@ -9,8 +9,8 @@ Cog = getattr(commands, "Cog", object)
 
 
 class Supporters(Cog):
-    """Let your users know who is part of the support team.
-    More info: [click here](https://github.com/papiersnipper/modmail-plugins/tree/master/supporters)
+    """Indiquez à vos utilisateurs qui fait partie de l'équipe de support.
+    Plus d'info: [cliquez ici](https://github.com/papiersnipper/modmail-plugins/tree/master/supporters)
     """
 
     def __init__(self, bot):
@@ -26,7 +26,7 @@ class Supporters(Cog):
             pass
 
 
-    @commands.command(aliases=["helpers", "supporters", "supportmembers", "staff", "staffs"])
+    @commands.command(aliases=["helpers", "helper", "supporters", "support", "staff", "staffs"])
     async def support(self, ctx):
         """Send an embed with all the support members."""
 
