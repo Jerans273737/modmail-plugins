@@ -116,8 +116,7 @@ class ReactToContact(commands.Cog):
         try:
             await member.send(
                 embed=discord.Embed(
-                    description="Bonjour, comment pouvons-nous vous aider ?", 
-                    color=self.bot.main_color,
+                    description="Bonjour, comment pouvons-nous vous aider ?", color=self.bot.main_color
                 )
                 embed.set_footer("Attention répondre à ce message ouvrira un ticket support.")
             )
