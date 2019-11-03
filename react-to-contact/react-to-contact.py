@@ -116,7 +116,7 @@ class ReactToContact(commands.Cog):
         try:
             await member.send(
                 embed=discord.Embed(
-                    description="Bonjour, comment pouvons-nous vous aider ?", color=self.bot.main_color, footer="Attention répondre à ce message ouvrira un ticket support."
+                    description="Bonjour, comment pouvons-nous vous aider ?", color=self.bot.main_color, set_footer="Attention répondre à ce message ouvrira un ticket support."
                 )
             )
         except (discord.HTTPException, discord.Forbidden):
