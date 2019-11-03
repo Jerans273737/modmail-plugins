@@ -1,5 +1,5 @@
-import re
 import asyncio
+import re
 import datetime
 import discord
 from discord.ext import commands
@@ -39,6 +39,7 @@ class ReactToContact(commands.Cog):
         Set the message on which the bot will look reactions on.
         Creates an __interactive session__ to use emoji **(Supports Unicode Emoji Too)**
         Before using this command, make sure there is a reaction on the message you want the plugin to look at.
+
         **Usage:**
         {prefix}setreaction <message_url>
         """
@@ -55,7 +56,7 @@ class ReactToContact(commands.Cog):
 
             # TODO: Better English
             await ctx.send(
-                "React to this message with the emoji."
+                "Réagissez au message avec l'émoji"
                 " `(This Reaction Should be added on this message or it won't work.)`"
             )
             reaction, user = await self.bot.wait_for("reaction_add", check=check)
@@ -74,7 +75,7 @@ class ReactToContact(commands.Cog):
             await ctx.send("Done!")
 
         else:
-            await ctx.send("Please give a valid message link")
+            await ctx.send("Donnez moi un lien valid s'il vous plait.")
             return
 
     @commands.Cog.listener()
@@ -111,20 +112,20 @@ class ReactToContact(commands.Cog):
         msg: discord.Message = await channel.fetch_message(int(config["message"]))
 
         await msg.remove_reaction(payload.emoji, member)
-
+        embed = discord.Embed(
+            description="Bonjour, comment puis-je vous aider ?",
+            color=self.bot.main_color
+        )
+        embed.set_footer(text="Attention répondre à ce message ouvrira un ticket.")
         try:
-            await member.send(
-                embed=discord.Embed(
-                    description="Hello, how may we help you?", color=self.bot.main_color
-                )
-            )
+            await member.send(embed=embed)
         except (discord.HTTPException, discord.Forbidden):
-            ch = self.bot.get_channel(int(self.bot.config.get("log_channel_id")))
+            ch = self.bot.get_channel(int(self.bot.config.get("support-logs")))
 
             await ch.send(
                 embed=discord.Embed(
-                    title="User Contact failed",
-                    description=f"**{member.name}#{member.discriminator}** tried contacting, but the bot couldnt dm him/her.",
+                    title="Je n'ai pas pue contacter l'utilisateur",
+                    description=f"J'ai essayé de contacter **{member.name}#{member.discriminator}** mais je réussis (mp fermé ou bot blocké)",
                     color=self.bot.main_color,
                     timestamp=datetime.datetime.utcnow(),
                 )
