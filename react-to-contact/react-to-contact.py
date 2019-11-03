@@ -113,12 +113,12 @@ class ReactToContact(commands.Cog):
 
         await msg.remove_reaction(payload.emoji, member)
 
-        try:
-            await member.send(
-                embed=discord.Embed(
-                    description="Bonjour, comment pouvons-nous vous aider ?", color=self.bot.main_color
-                )
-            )
+		try:
+			await member.send(
+				embed=discord.Embed(
+					description="Hello, how may we help you?", color=self.bot.main_color
+				)
+			)
         except (discord.HTTPException, discord.Forbidden):
             ch = self.bot.get_channel(int(self.bot.config.get("575743860827750400")))
 
