@@ -117,7 +117,7 @@ class ReactToContact(commands.Cog):
             description="Bonjour, comment puis-je vous aider ?",
             color=self.bot.main_color
         )
-        embed.set_footer(text="Attention répondre à ce message ouvrira un ticket.")
+        embed.set_footer(text="⚠️ Attention répondre à ce message ouvrira un ticket.")
         try:
             await member.send(embed=embed)
         except (discord.HTTPException, discord.Forbidden):
