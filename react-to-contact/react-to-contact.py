@@ -72,7 +72,12 @@ class ReactToContact(commands.Cog):
                 },
                 upsert=True,
             )
-            await self.bot.add_reaction(msg, reaction.emoji)
+            message = discord.Message
+            for textchannel in ctx.guild.text_channels:
+                textchannel = discord.TextChannel
+                if textchannel.fetch_message(self, msg):
+                    message = textchannel.fetch_message(self, msg)
+            await self.bot.add_reaction(message, reaction.emoji)
             await ctx.send("C'est bon !")
 
         else:
@@ -117,7 +122,7 @@ class ReactToContact(commands.Cog):
             description="Bonjour, comment puis-je vous aider ?",
             color=self.bot.main_color
         )
-        embed.set_footer(text="⚠️ Attention répondre à ce message ouvrira un ticket.")
+        embed.set_footer(text="Attention répondre à ce message ouvrira un ticket.")
         try:
             await member.send(embed=embed)
         except (discord.HTTPException, discord.Forbidden):
