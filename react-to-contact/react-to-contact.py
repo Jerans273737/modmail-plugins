@@ -59,6 +59,7 @@ class ReactToContact(commands.Cog):
                 "Réagissez au message avec l'émoji"
                 " `(Cette reaction doit être mise sur ce message sinon ça ne marchera pas.)`"
             )
+            reaction = discord.Reaction
             reaction, user = await self.bot.wait_for("reaction_add", check=check)
 
             await self.db.find_one_and_update(
@@ -72,12 +73,11 @@ class ReactToContact(commands.Cog):
                 },
                 upsert=True,
             )
-            message = discord.Message
             for textchannel in ctx.guild.text_channels:
                 textchannel = discord.TextChannel
                 if textchannel.fetch_message(self.bot, msg):
-                    message = textchannel.fetch_message(self.bot, msg)
-                    await self.bot.add_reaction(message, reaction.emoji)
+                    message: discord.Message = await textchannel.fetch_message(self.bot, msg)
+                    await self.bot.add_reaction(message, reaction.emoji.id)
             await ctx.send("C'est bon !")
         else:
             await ctx.send("Donnez moi un lien valid s'il vous plait.")
@@ -125,7 +125,7 @@ class ReactToContact(commands.Cog):
         try:
             await member.send(embed=embed)
         except (discord.HTTPException, discord.Forbidden):
-            ch = self.bot.get_channel(int(self.bot.config.get("support-logs")))
+            ch = self.bot.get_channel(int(self.bot.config.get("575743860827750400")))
 
             await ch.send(
                 embed=discord.Embed(
