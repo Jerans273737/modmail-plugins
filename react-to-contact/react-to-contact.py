@@ -77,9 +77,8 @@ class ReactToContact(commands.Cog):
                 textchannel = discord.TextChannel
                 if textchannel.fetch_message(self, msg):
                     message = textchannel.fetch_message(self, msg)
-            await self.bot.add_reaction(message, reaction.emoji)
+                    await self.bot.add_reaction(message, reaction.emoji)
             await ctx.send("C'est bon !")
-
         else:
             await ctx.send("Donnez moi un lien valid s'il vous plait.")
             return
