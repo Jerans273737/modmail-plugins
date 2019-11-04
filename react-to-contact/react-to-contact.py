@@ -75,8 +75,8 @@ class ReactToContact(commands.Cog):
             message = discord.Message
             for textchannel in ctx.guild.text_channels:
                 textchannel = discord.TextChannel
-                if textchannel.fetch_message(self, msg):
-                    message = textchannel.fetch_message(self, msg)
+                if textchannel.fetch_message(self.bot, msg):
+                    message = textchannel.fetch_message(self.bot, msg)
                     await self.bot.add_reaction(message, reaction.emoji)
             await ctx.send("C'est bon !")
         else:
