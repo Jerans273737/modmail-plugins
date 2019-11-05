@@ -2,6 +2,7 @@
    "allowed":[
       "hugs",
       "reacttocontact",
-      "supporters"
+      "supporters",
+      "starboard"
    ]
 }
