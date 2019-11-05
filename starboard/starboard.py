@@ -16,8 +16,8 @@ class StarboardPlugin(commands.Cog):
     def __init__(self, bot):
         self.bot: discord.Client = bot
         self.db = bot.plugin_db.get_partition(self)
-        self.channel = None
-        self.stars = 2
+        self.channel = 581223459896426496
+        self.stars = 1
         self.user_blacklist = list()
         self.channel_blacklist = list()
         asyncio.create_task(self._set_val())
@@ -61,12 +61,12 @@ class StarboardPlugin(commands.Cog):
         Définir le salon starboard où les messages iront
 
         **Usage:**
-        starboard channel **#this-is-a-channel**
+        starboard channel **#le-salon**
         """
         self.channel = str(channel.id)
         await self._update_db()
 
-        await ctx.send(f"Done! {channel.mention} is the Starboard Channel now!")
+        await ctx.send(f"Done! {channel.mention} est le salon Starboard maintenant !")
 
     @starboard.command(aliases=["setstars", "ss"])
     @checks.has_permissions(PermissionLevel.ADMIN)
