@@ -9,8 +9,8 @@ from core.models import PermissionLevel
 
 class StarboardPlugin(commands.Cog):
     """
-    A starboard is a popular feature in bots that serve as a channel of messages that users of the server find funny, stupid, or both.
-    With this plugin, you can add starboard service to your Modmail bot.
+    Un starboard est une fonctionnalité populaire chez les robots qui sert de canal aux messages que les utilisateurs du serveur trouvent drôles, stupides, ou les deux.
+    Avec ce plugin, vous pouvez ajouter un salon starboard à votre bot Modmail.
     """
 
     def __init__(self, bot):
@@ -58,7 +58,7 @@ class StarboardPlugin(commands.Cog):
     @checks.has_permissions(PermissionLevel.ADMIN)
     async def channel(self, ctx: commands.Context, channel: discord.TextChannel):
         """
-        Set the starboard channel where the messages will go
+        Définir le salon starboard où les messages iront
 
         **Usage:**
         starboard channel **#this-is-a-channel**
@@ -72,7 +72,7 @@ class StarboardPlugin(commands.Cog):
     @checks.has_permissions(PermissionLevel.ADMIN)
     async def stars(self, ctx: commands.Context, stars: int):
         """
-        Set the number of stars the message needs to appear on the starboard channel
+        Définir le nombre d'étoiles pour lesquelles le message doit apparaître sur le salon starboard
 
         **Usage:**
         starboard stars 2
@@ -81,7 +81,7 @@ class StarboardPlugin(commands.Cog):
         await self._update_db()
 
         await ctx.send(
-            f"Done.Now this server needs `{stars}` :star: to appear on the starboard channel."
+            f"Terminé. Maintenant, ce serveur a besoin de `{stars}` :star: pour apparaître sur le salon starboard."
         )
 
     @starboard.group()
@@ -94,7 +94,7 @@ class StarboardPlugin(commands.Cog):
     @checks.has_permissions(PermissionLevel.ADMIN)
     async def member(self, ctx: commands.Context, member: discord.Member):
         """
-        Blacklist a user so that the user's reaction dosen't get counted
+        Mettre un utilisateur sur la liste noire afin que sa réaction ne soit pas comptabilisée
 
         **Usage:**
         starboard blacklist member @user
@@ -118,7 +118,7 @@ class StarboardPlugin(commands.Cog):
         self, ctx: commands.Context, channel: discord.TextChannel
     ):
         """
-        Blacklist Channels so that messages sent in those channels dont appear on starboard
+        Blacklist des salon pour que les messages envoyés dans ces canaux n'apparaissent pas sur le starboard
 
         **Usage:**
         starboard blacklist channel **#channel**
