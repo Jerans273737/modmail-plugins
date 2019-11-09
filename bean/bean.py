@@ -11,7 +11,7 @@ class Bean(commands.Cog):
     @commands.guild_only()
     @commands.has_permissions(manage_messages=True)
     async def bean(self, ctx, target: discord.Member):
-        beanEmoji = ctx.bot.get_emoji(000000)
+        beanEmoji = ctx.bot.get_emoji(642785892603265024)
 
         await ctx.send('<:bean:{}> Beaned **{}** (`{}`)!'.format(beanEmoji.id, ctx.author, ctx.author.id))
         try:
