@@ -13,7 +13,7 @@ class Bean(commands.Cog):
     async def bean(self, ctx, target: discord.Member):
         beanEmoji = ctx.bot.get_emoji(642785892603265024)
 
-        await ctx.send('<:bean:{}> Beaned **{}** (`{}`)!'.format(beanEmoji.id, ctx.author, ctx.author.id))
+        await ctx.send('<:bean:{}> Beaned **{}** (`{}`)!'.format(beanEmoji.id, target, target.id))
         try:
             message = await self.bot.wait_for('message', timeout=60*5, check=lambda m: m.author == target and m.channel.guild == ctx.guild)
         except asyncio.TimeoutError:
