@@ -574,8 +574,8 @@ class PostPlugin(commands.Cog):
                 message = discord.Message
                 channelv = discord.TextChannel
                 for channel in guild.text_channels:
-                    message = channel.fetch_message(messageedit)
-                    channelv = channel
+                    message: discord.Message = channel.fetch_message(messageedit)
+                    channelv: discord.TextChannek = channel
                 await ctx.send(
                     embed=await self.generate_embed("Edited ! (https://discordapp.com/channels/{}/{}/{})".format(guild.id, channelv.id, message.id))
                 )
