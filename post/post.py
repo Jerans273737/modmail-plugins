@@ -323,7 +323,7 @@ class PostPlugin(commands.Cog):
         self,
         ctx: commands.Context,
         role: typing.Optional[discord.Role],
-        messageedit: discord.User.avatar_url
+        messageedit: int
     ):
         """
         Edit an existen bot messagge with an interactive session to create post
