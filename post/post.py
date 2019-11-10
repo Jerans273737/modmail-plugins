@@ -563,11 +563,6 @@ class PostPlugin(commands.Cog):
                         return
 
             await ctx.send(
-                embed=await self.generate_embed(
-                    "In which channel should I send the post?"
-                )
-            )
-            await ctx.send(
                 "Here is how the embed looks like: Send it? `[y/n]`", embed=embed
             )
             s_res = await self.bot.wait_for("message", check=check)
@@ -576,7 +571,7 @@ class PostPlugin(commands.Cog):
                 return
             else:
                 guild: discord.Guild = ctx.guild
-                message = ""
+                message = discord.Message
                 for channel in guild.text_channels:
                     message = channel.fetch_message(messageedit)
                 await message.edit(f"{role_mention}", embed=embed)
