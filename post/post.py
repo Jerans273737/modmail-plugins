@@ -574,7 +574,7 @@ class PostPlugin(commands.Cog):
                 message = discord.Message
                 for channel in guild.text_channels:
                     message = channel.fetch_message(messageedit)
-                await message.edit(f"{role_mention}", embed=embed)
+                await message.edit(embed=embed)
         if role:
             guild: discord.Guild = ctx.guild
             grole: discord.Role = guild.get_role(role.id)
@@ -582,12 +582,7 @@ class PostPlugin(commands.Cog):
                 await grole.edit(mentionable=False)
     @commands.Cog.listener()
     async def on_ready(self):
-        async with self.bot.session.post(
-            "https://counter.modmail-plugins.ionadev.ml/api/instances/post",
-            json={"id": self.bot.user.id},
-        ):
-            print("Posted to Plugin API")
-
+        pass
     @staticmethod
     async def generate_embed(description: str):
         embed = discord.Embed()
