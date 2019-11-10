@@ -27,11 +27,5 @@ class Bean(commands.Cog):
             except Forbidden:
                 await message.channel.send('<:ItemBean:{}>'.format(self.beanEmoji.id))
 
-    @commands.Cog.listener()
-    async def on_reaction_add(self, reaction, user):
-        if reaction.count >= 5 and reaction.emoji.id == self.beanEmoji.id:
-            wowee = await reaction.message.channel.send('WOWEEEEE SUPER BEAAN <:ItemBean:{}>'.format(self.beanEmoji.id))
-            await wowee.add_reaction(self.beanEmoji)
-
 def setup(bot):
     bot.add_cog(Bean(bot))
