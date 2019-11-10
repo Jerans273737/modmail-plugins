@@ -572,12 +572,12 @@ class PostPlugin(commands.Cog):
             else:
                 guild: discord.Guild = ctx.guild
                 message = discord.Message
-                channelid = discord.TextChannel
+                channelv = discord.TextChannel
                 for channel in guild.text_channels:
                     message = channel.fetch_message(messageedit)
-                    channelid = channel.id
+                    channelv = channel
                 await ctx.send(
-                    embed=await self.generate_embed("Edited ! (https://discordapp.com/channels/{}/{}/{})".format(guild.id, channelid, messageedit))
+                    embed=await self.generate_embed("Edited ! (https://discordapp.com/channels/{}/{}/{})".format(guild.id, channelv.id, message.id))
                 )
                 await message.edit(embed=embed)
         if role:
