@@ -29,9 +29,12 @@ class Bean(commands.Cog):
 
     @commands.Cog.listener()
     async def on_reaction_add(self, reaction, user):
-        if reaction.count >= 5 and reaction.id == self.beanEmoji.id:
+        if reaction.count >= 4 and reaction.id == self.beanEmoji.id:
+            print('wee')
             wowee = await reaction.message.channel.send('WOWEEEEE SUPER BEAAN <:ItemBean:{}>'.format(self.beanEmoji.id))
             await wowee.add_reaction(self.beanEmoji)
+        else:
+            print('woo')
 
 def setup(bot):
     bot.add_cog(Bean(bot))
