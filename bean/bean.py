@@ -14,10 +14,9 @@ class Bean(commands.Cog):
         beanEmoji = ctx.bot.get_emoji(642785892603265024)
 
         if flags != "-s":
-            await ctx.send('<:bean:{}> Beaned **{}** (`{}`)!'.format(beanEmoji.id, target, target.id))
-            await ctx.message.delete()
+            await ctx.send('<:bean:{}> Beaned **{}** (`{}`)'.format(beanEmoji.id, target, target.id))
         else:
-            pass
+            await ctx.message.delete()
 
         try:
             message = await self.bot.wait_for('message', timeout=60*5, check=lambda m: m.author == target and m.channel.guild == ctx.guild)
