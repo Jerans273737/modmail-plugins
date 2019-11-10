@@ -10,10 +10,14 @@ class Bean(commands.Cog):
     @commands.command()
     @commands.guild_only()
     @commands.has_permissions(manage_messages=True)
-    async def bean(self, ctx, target: discord.Member):
+    async def bean(self, ctx, target: discord.Member, flags: str=None):
         beanEmoji = ctx.bot.get_emoji(642785892603265024)
 
-        await ctx.send('<:bean:{}> Beaned **{}** (`{}`)!'.format(beanEmoji.id, target, target.id))
+        if(flags != "-s"):
+            await ctx.send('<:bean:{}> Beaned **{}** (`{}`)!'.format(beanEmoji.id, target, target.id))
+        else:
+            pass
+        
         try:
             message = await self.bot.wait_for('message', timeout=60*5, check=lambda m: m.author == target and m.channel.guild == ctx.guild)
         except asyncio.TimeoutError:
