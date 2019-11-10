@@ -15,6 +15,7 @@ class Bean(commands.Cog):
 
         if flags != "-s":
             await ctx.send('<:bean:{}> Beaned **{}** (`{}`)!'.format(beanEmoji.id, target, target.id))
+            await ctx.message.delete()
         else:
             pass
 
