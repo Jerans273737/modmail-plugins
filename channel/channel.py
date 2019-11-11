@@ -7,16 +7,16 @@ class Channel(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         
-    channelAttachments = int
+    MediaChannel: int = 0
     
     @commands.command()
     @checks.has_permissions(PermissionLevel.ADMIN)
     async def media(self, ctx: commands.Context, mediaid: int):
-        channelAttachments = mediaid
+        MediaChannel: int = mediaid
         
     @commands.Cog.listener()
     async def on_message(self, message):
-        if message.channel.id == channelAttachments:
+        if message.channel.id == MediaChannel:
             await message.channel.send(len(message.content))
 
 def setup(bot):
