@@ -9,7 +9,8 @@ class Channel(commands.Cog):
         
     MediaChannel: int = 0
     
-    @commands.command()
+    @commands.group(aliases=["meida"], invoke_without_command=True)
+    @commands.guild_only()
     @checks.has_permissions(PermissionLevel.ADMIN)
     async def media(self, ctx: commands.Context, mediaid: int):
         MediaChannel: int = mediaid
