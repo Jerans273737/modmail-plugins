@@ -11,7 +11,7 @@ class Channel(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message):
         if message.channel.id == self.channelAttachments.id:
-            await message.channel.send(len(message.content))
+            await message.channel.send(message.content)
 
 def setup(bot):
     bot.add_cog(Channel(bot))
