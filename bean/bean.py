@@ -2,6 +2,7 @@ import asyncio, discord
 from   discord.ext import commands
 from   discord     import Forbidden
 
+
 class Bean(commands.Cog):
 
     def __init__(self, bot):
@@ -12,7 +13,7 @@ class Bean(commands.Cog):
     @commands.guild_only()
     @commands.has_permissions(manage_messages=True)
     async def bean(self, ctx, target: discord.Member, flags: str=None):
-        if target.id != self.bot.id:
+        if target.id != self.bot.user.id:
             if flags != "-s":
                 await ctx.send('<:ItemBean:{}> Beaned **{}** (`{}`)'.format(self.beanEmoji.id, target, target.id))
             else:
