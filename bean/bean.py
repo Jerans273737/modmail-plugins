@@ -13,25 +13,22 @@ class Bean(commands.Cog):
     @commands.guild_only()
     @commands.has_permissions(manage_messages=True)
     async def bean(self, ctx, targets: commands.Greedy[discord.Member], flags: str=None):
-        if target.id != self.bot.user.id:
-            if flags != "-s":
-                for target in targets:                    
-                    await ctx.send('<:ItemBean:{}> Beaned **{}** (`{}`)'.format(self.beanEmoji.id, target, target.id))
-            else:
-                await ctx.message.delete()
-
-            try:
-                for target in targets:
-                    message = await self.bot.wait_for('message', timeout=60*5, check=lambda m: m.author == target and m.channel.guild == ctx.guild)
-            except asyncio.TimeoutError:
-                pass
-            else:
-                try:
-                    await message.add_reaction(self.beanEmoji)
-                except Forbidden:
-                    await message.channel.send('<:ItemBean:{}>'.format(self.beanEmoji.id))
+        if flags != "-s":
+            for target in targets:
+                await ctx.send('<:ItemBean:{}> Beaned **{}** (`{}`)'.format(self.beanEmoji.id, target, target.id))
         else:
-            await ctx.send('lol no.')
+            await ctx.message.delete()
+
+        try:
+            for target in targets:
+                message = await self.bot.wait_for('message', timeout=60*5, check=lambda m: m.author == target and m.channel.guild == ctx.guild)
+        except asyncio.TimeoutError:
+            pass
+        else:
+            try:
+                await message.add_reaction(self.beanEmoji)
+            except Forbidden:
+                await message.channel.send('<:ItemBean:{}>'.format(self.beanEmoji.id))
          
 
 def setup(bot):
