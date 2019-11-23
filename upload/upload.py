@@ -9,7 +9,7 @@ class Upload(commands.Cog):
 
     @commands.command()
     @commands.guild_only()
-    async def upload(self, ctx, m: str="None"):
+    async def upload(self, ctx):
         ctx.send("test")
          
 
