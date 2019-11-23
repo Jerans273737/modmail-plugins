@@ -9,9 +9,13 @@ class Upload(commands.Cog):
 
     @commands.command()
     @commands.guild_only()
-    async def upload(self, ctx):
-        await ctx.channel.send("test")
-         
+    async def upload(self, ctx, link: str=None):
+        if link:
+            await ctx.channel.send(link)
+        elif len(message.attachments) > 1:
+            await ctx.channel.send(message.attachments[0])
+        else:
+            await ctx.channel.send("Merci de renseigner une image à upload")
 
 def setup(bot):
     bot.add_cog(Upload(bot))
