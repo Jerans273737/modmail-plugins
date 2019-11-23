@@ -9,7 +9,7 @@ class Upload(commands.Cog):
 
     @commands.command()
     @commands.guild_only()
-    async def upload(self, ctx, link: typing.Optional[str]):
+    async def upload(self, ctx, link: str=None):
         message = ctx.message
         if link:
             await ctx.channel.send(link)
