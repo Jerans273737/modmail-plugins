@@ -9,7 +9,6 @@ class Upload(commands.Cog):
 
     @commands.command()
     @commands.guild_only()
-    @commands.has_permissions(manage_messages=True)
     async def upload(self, ctx):
         ctx.send("test")
          
