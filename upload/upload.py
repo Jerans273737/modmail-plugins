@@ -1,5 +1,4 @@
-import asyncio
-import discord
+import asyncio, discord, re
 from discord.ext import commands
 
 class Upload(commands.Cog):
@@ -9,10 +8,11 @@ class Upload(commands.Cog):
 
     @commands.command()
     @commands.guild_only()
-    async def upload(self, ctx, link: str=None):
+    async def upload(self, ctx, *, links: str=None):
         message = ctx.message
-        if link:
-            await ctx.channel.send(link)
+        urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', links)
+        if len(urls) > 1:
+            await ctx.channel.send(urls[0])
         elif len(message.attachments) > 1:
             await ctx.channel.send(message.attachments[0])
         else:
