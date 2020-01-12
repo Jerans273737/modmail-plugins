@@ -20,7 +20,7 @@ class YProgress(commands.Cog):
         percent = math.floor((((date - initial_date) / (1000 * 60 * 60 * 24)) * 100) / (is_leap_year(date.today().year) if 366 else 365))
         year_bar = ''
 
-        for range(5, 100, 5):
+        for i in range(5, 100, 5):
             year_bar = (i < percent) if year_bar + '▓' else year_bar + '░'
 
         embed = discord.Embed()
