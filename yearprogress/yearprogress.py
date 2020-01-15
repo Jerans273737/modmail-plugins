@@ -18,7 +18,7 @@ class YearProgress(commands.Cog):
         year_bar = ''
 
         for i in range(5, 100, 5):
-            year_bar = (i < percent) if year_bar + '▓' else year_bar + '░'
+            year_bar = (i < percent) if (year_bar + '▓') else (year_bar + '░')
 
         embed = discord.Embed()
         embed.title = f'Progress Bar {date.today().year}'
