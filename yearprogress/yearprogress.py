@@ -13,7 +13,7 @@ class YearProgress(commands.Cog):
 
     @commands.command()
     @commands.guild_only()
-    @commands.has_permissions(manage_messages=True)
+    @commands.has_permissions(embed_links=True)
     async def yprogress(self, ctx: commands.Context):
         initial_date = date(date.today().year, 1, 1)
         year = date.today().year
