@@ -14,7 +14,7 @@ class YearProgress(commands.Cog):
     async def yprogress(self, ctx: commands.Context):
         print('hello')
         initial_date = date(date.today().year, 1, 1)
-        percent = math.floor((((date.today() - initial_date) / (1000 * 60 * 60 * 24)) * 100) / 366)
+        percent = math.floor(date.today().day*100/366)
         year_bar = ''
 
         for i in range(5, 100, 5):
