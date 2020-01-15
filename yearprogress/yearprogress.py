@@ -12,12 +12,8 @@ class YearProgress(commands.Cog):
     @commands.guild_only()
     @commands.has_permissions(embed_links=True)
     async def yprogress(self, ctx: commands.Context):
-        def is_leap_year(year): 
-            return (year % 400 == 0 or (year % 100 != 0 and year % 4 == 0))
-
         initial_date = date(date.today().year, 1, 1)
-        year = date.today().year
-        percent = math.floor((((date.today() - initial_date) / (1000 * 60 * 60 * 24)) * 100) / (is_leap_year(date.today().year) if 366 else 365))
+        percent = math.floor((((date.today() - initial_date) / (1000 * 60 * 60 * 24)) * 100) / (date.today().year % 400 == 0 or (date.today().year % 100 != 0 and date.today().year % 4 == 0)) if 366 else 365))
         year_bar = ''
 
         for i in range(5, 100, 5):
