@@ -14,7 +14,7 @@ class YearProgress(commands.Cog):
     async def yprogress(self, ctx: commands.Context):
         print('hello')
         initial_date = date(date.today().year, 1, 1)
-        percent = math.floor((((date.today() - initial_date) / (1000 * 60 * 60 * 24)) * 100) / (date.today().year % 400 == 0 or (date.today().year % 100 != 0 and date.today().year % 4 == 0)) if 366 else 365))
+        percent = math.floor((((date.today() - initial_date) / (1000 * 60 * 60 * 24)) * 100) / 366)
         year_bar = ''
 
         for i in range(5, 100, 5):
@@ -24,7 +24,7 @@ class YearProgress(commands.Cog):
         embed.title = f'Progress Bar {date.today().year}'
         embed.description = f'<a:aSpriteCircle:605012000334151730> {year_bar} **{percent}%**'
 
-        await ctx.send(embed=embed)
+        return await ctx.send(embed=embed)
 
 def setup(bot):
     bot.add_cog(YearProgress(bot))
