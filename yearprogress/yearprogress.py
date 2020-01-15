@@ -25,7 +25,7 @@ class YearProgress(commands.Cog):
 
         embed = discord.Embed()
         embed.title = f'Progress Bar {date.today().year}'
-        embed.description = f'<a:aSpriteCircle:605012000334151730> {year_bar} **{percent}%**'
+        embed.description = f'<a:aSpriteCircle:605012000334151730> {year_bar} **{str(percent)}%**'
 
         return await ctx.send(embed=embed)
 
