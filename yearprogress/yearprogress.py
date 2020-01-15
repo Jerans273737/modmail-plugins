@@ -24,6 +24,7 @@ class YearProgress(commands.Cog):
                 year_bar = year_bar + '░'
 
         embed = discord.Embed()
+        embed.colour = discord.Colour(0x36393f)
         embed.title = f'Progress Bar {date.today().year}'
         embed.description = f'<a:aSpriteCircle:605012000334151730> {year_bar} **{str(percent)}%**'
 
