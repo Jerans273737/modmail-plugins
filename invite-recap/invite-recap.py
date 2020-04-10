@@ -2,7 +2,7 @@ from discord import Member
 from discord.ext import commands
 import asyncio
 
-class InviteRecap(commands.Cog):
+class MyCog(commands.Cog):
   
   def __init__(self, bot):
     self.bot = bot
