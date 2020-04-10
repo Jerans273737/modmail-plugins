@@ -9,12 +9,14 @@ class MyCog(commands.Cog):
     self.joins = 0
     self.recap_channel = 698185668047667232
 
+  @commands.command()
+  async def inviterecapcr(self, ctx: commands.Context):
     async def task():
       while True:
         await self.bot.get_channel(recap_channel).send('test')
         await asyncio.sleep(10)    
   
-    self.bot.loop.create_task(task())
+    await self.bot.loop.create_task(task())
 
   @commands.Cog.listener()
   async def on_member_join(self, member):
