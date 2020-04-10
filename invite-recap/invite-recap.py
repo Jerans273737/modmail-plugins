@@ -19,5 +19,5 @@ class MyCog(commands.Cog):
     self.bot.loop.create_task(recap())
     self.joins = self.joins + 1
 
-  def setup(bot):
-    bot.add_cog(MyCog(bot))
+def setup(bot):
+  bot.add_cog(MyCog(bot))
