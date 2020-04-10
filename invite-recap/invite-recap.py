@@ -4,11 +4,13 @@ import asyncio
 
 class InviteRecap(commands.Cog):
   
-  async def __init__(self, bot):
+  def __init__(self, bot):
     self.bot = bot
     self.joins = 0
     self.recap_channel = 698185668047667232
 
+  @commands.command()
+  async def inviterecap(self):
     while True:
         await self.bot.get_channel(recap_channel).send('test')
         await asyncio.sleep(10)
