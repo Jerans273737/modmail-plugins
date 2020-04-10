@@ -16,7 +16,7 @@ class MyCog(commands.Cog):
 
   @commands.Cog.listener()
   async def on_member_join(self, member):
-    self.bot.loop.create_task(recap())
+    self.bot.loop.create_task(self.recap())
     self.joins = self.joins + 1
 
 def setup(bot):
