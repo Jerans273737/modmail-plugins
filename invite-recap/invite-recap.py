@@ -5,9 +5,8 @@ import asyncio
 class MyCog(commands.Cog):
   async def recap(self):
     while True:
-        await self.bot.get_channel(recap_channel).send(f'> **{joins}** nouveaux membres')
-        self.joins = 0
-        await asyncio.sleep(300)    
+        await self.bot.get_channel(recap_channel).send('test')
+        await asyncio.sleep(10)    
   
   def __init__(self, bot):
     self.bot = bot
