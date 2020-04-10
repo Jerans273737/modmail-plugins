@@ -13,7 +13,7 @@ class MyCog(commands.Cog):
   async def inviterecapcr(self, ctx: commands.Context):
     async def task():
       while True:
-        await self.bot.get_channel(recap_channel).send('test')
+        await self.bot.get_channel(self.recap_channel).send(f'> **{self.joins}** new members in the last hour')
         await asyncio.sleep(10)    
   
     await self.bot.loop.create_task(task())
