@@ -14,7 +14,7 @@ class MyCog(commands.Cog):
     async def task():
       while True:
         await self.bot.get_channel(self.recap_channel).send(f'> **{self.joins}** new members in the last hour')
-        await asyncio.sleep(10)    
+        await asyncio.sleep(300)    
   
     await self.bot.loop.create_task(task())
 
