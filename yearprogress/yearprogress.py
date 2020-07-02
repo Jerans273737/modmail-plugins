@@ -13,7 +13,7 @@ class YearProgress(commands.Cog):
     @commands.has_permissions(embed_links=True)
     async def yprogress(self, ctx: commands.Context):
         today = dt.date.today()
-        next_year = dt.date(dt.year, 1, 1)
+        next_year = dt.date(dt.date.today().year + 1, 1, 1)
         progress = (next_year - today).days / 365 * 100
         year_bar = ''
 
