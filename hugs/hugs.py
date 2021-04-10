@@ -29,7 +29,7 @@ class MyCog(commands.Cog):
     @hug.error
     async def hug_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send(f"Désolé {ctx.author.mention}, mais je n'ai pas trouvé d'utilisateur à hug :(")
+            await ctx.send(f"Désolé {ctx.author.mention}, {user} has gave {user} a hug:(")
         elif isinstance(error, commands.BadArgument):
             await ctx.send(f"Désolé {ctx.author.mention}, mais il faut que tu mentionne ou que tu donne l'id de l'utilisateur à hug")
         else:
